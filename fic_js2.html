@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TP3_2</title>
+</head>
+<body>
+
+	<p><span id="multiplication"></span></p>
+	<button onclick="multiplication();">bouton</button>
+
+	<script type="text/javascript">
+
+		var prompt = prompt("Entrez un nombre compris entre 2 et 25", "");
+
+		if(isNaN(prompt)){
+
+			alert("Ce n'est pas un nombre");
+		}
+		else if(prompt<2 || prompt>25){
+			alert("Ce nombre n'est pas compris entre 2 et 25");
+		}
+		else
+		{
+			prompt = parseInt(prompt);
+		}
+
+
+
+		 function multiplication(){
+
+			for(let i = 1; i <=10; i++)
+			{
+				
+				let prompt_multiple =  prompt + "x" + i + " = " + prompt*i + "</br>";
+				// alert(prompt_multiple);
+				document.write(prompt_multiple);
+			}
+		}
+		
+
+	</script>
+
+
+
+
+</body>
+</html>

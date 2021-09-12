@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style_js3.css">
+	<title>TP3_3</title>
+</head>
+
+<body>
+
+	<div id="ecran">
+
+		<p> Pour calculer une équation du second degrès. </p>	
+
+		<p><span id=resultat onmouseover="survole()"; onmouseout="nonsurvole();"> </span><p>
+
+		<form>
+			
+			<label for="coef_a"> Coefficient a: </label><br>
+			<input type="text" id="coef_a" name="coef_a"  /></br>
+
+			<label for="coef_b"> Coefficient b: </label><br>
+			<input type="text" id="coef_b" name="coef_b" /></br>
+
+			<label for="coef_c"> Coefficient c: </label><br>
+			<input type="text" id="coef_c" name="coef_c"  /></br>
+
+			<input type="button" onclick="equation();" value="calculer"></input>
+
+		</form>
+	</div>
+		<script type="text/javascript">
+		
+			function equation()
+			{
+
+				let a = document.getElementById("coef_a").value;
+				let b = document.getElementById("coef_b").value;
+				let c = document.getElementById("coef_c").value;
+				let discriminant;
+				let x;
+				let x1;
+				let x2;
+
+				let resultat;
+
+				discriminant = b*b - 4*a*c;
+
+				// alert(discriminant); //Valeur du discriminant
+
+				if(discriminant>0)
+				{
+					x1 = (-b + Math.sqrt(discriminant)) / (2*a);
+					x2 = (-b - Math.sqrt(discriminant)) / (2*a);
+
+					resultat = " valeur x1 = " + x1 + " valeur x2 = " + x2;
+
+					document.getElementById("resultat").innerHTML = resultat;
+
+				}
+				else if(discriminant==0)
+				{
+					x = -b / 2*a;
+ 
+					resultat = "valeur = " + x;
+
+					document.getElementById("resultat").innerHTML = resultat;
+				}
+				else if(discriminant<0)
+				{
+					resultat = "Il n'y a pas de solutions disponibles dans R";
+
+					document.getElementById("resultat").innerHTML = resultat;
+				}
+
+
+			}
+
+			function survole()
+			{
+				let vert = document.getElementById("resultat");
+
+				vert.style.color="#20FF00";
+				vert.style.background="black";
+			}
+
+			function nonsurvole()
+			{
+				let none = document.getElementById("resultat");
+				none.style.color="black";
+				none.style.background="white";
+			}
+
+		</script>
+
+</body>
+</html>
